@@ -18,6 +18,8 @@ class MyApp extends StatelessWidget {
       title: 'ITE',
       theme: ThemeData(
         drawerTheme: const DrawerThemeData(backgroundColor: kPrimaryColor),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+            backgroundColor: kSecundaryColor),
         appBarTheme:
             const AppBarTheme(centerTitle: true, color: kSecundaryColor),
         primarySwatch: Colors.blue,
