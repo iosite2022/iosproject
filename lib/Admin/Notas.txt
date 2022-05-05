@@ -1,8 +1,10 @@
 Aquí se procede a realizar las notas importantes
 
-//Carpeta Imports
+// Carpeta Imports
 
 En la imports se procede a crear y guardar todos las librerias de las clases creadas 
 en archivos especificos, dichos archivos contienen dentro todas las importaciones de 
 las clases respectivas. 
+
+// Please no write en spanglish
 

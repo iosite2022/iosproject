@@ -1,3 +1,2 @@
-export 'package:iosproject/widgets/bottombar_gnav.dart';
 export 'package:iosproject/widgets/drawer_principal.dart';
-export 'package:iosproject/widgets/card_swiper.dart';
+export 'package:iosproject/widgets/bottom_bar_gnav.dart';
