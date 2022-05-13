@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iosproject/imports/screens.dart';
 import 'package:iosproject/imports/styles_consts.dart';
+import 'package:iosproject/routes/pages.dart';
 import 'package:provider/provider.dart';
 import 'package:iosproject/models/tab_select.dart';
 
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Home(),
-      //routes: Pages.route,
+      routes: Pages.route,
     );
   }
 }

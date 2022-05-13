@@ -1,0 +1,7 @@
+<?xml version="1.0" enconding ="utf-8"?>
+
+<shape xmls:android="http://shemas.android.com/apk/res/android">
+
+            <solid android:color="@color/primary"/>
+
+</shape>

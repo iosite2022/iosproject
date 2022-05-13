@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iosproject/screens/industrial.dart';
 import 'package:provider/provider.dart';
 import 'package:iosproject/imports/widgets.dart';
 import 'package:iosproject/imports/styles_consts.dart';
