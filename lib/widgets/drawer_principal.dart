@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:iosproject/models/tab_select.dart';
 import 'package:provider/provider.dart';
+import 'package:iosproject/imports/.providers.dart';
+import 'package:iosproject/imports/.const.dart';
 
 class DrawerPrincipal extends StatelessWidget {
   const DrawerPrincipal({
@@ -9,26 +10,59 @@ class DrawerPrincipal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TabSelect tabSelect = Provider.of<TabSelect>(context);
+    final sel = Provider.of<Select>(context);
     return Drawer(
       child: SingleChildScrollView(
         child: Column(
           children: [
-            Image.asset('assets/tecnm.png'),
+            GestureDetector(
+              onTap: () {
+                sel.setCareer(null);
+                sel.setTab(Tabs.Home);
+                Navigator.of(context).pop();
+              },
+              child: Container(
+                padding: EdgeInsets.fromLTRB(3, 30, 3, 25),
+                child: Column(
+                  children: [
+                    Image.asset('assets/tecnm.png'),
+                    //TextButton(onPressed: () {}, child: Text('Inicio'))
+                  ],
+                ),
+              ),
+            ),
             const Divider(color: Colors.black, thickness: 2),
             const Text('Eliga una carrera para ver su información'),
             const Divider(color: Colors.black, thickness: 2),
-            ButtonCareer('Ingeniería Electromecánica', function: () {
-              //Navigator.pushReplacementNamed(
-              //     context, Routes.licadministracionPage);
-              tabSelect.setCareer(123);
+            ButtonCareer('Licenciatura en Administración', function: () {
+              sel.setCareer(Careers.Administracion);
+              Navigator.of(context).pop();
             }),
-            ButtonCareer('Ingeniería Electrónica'),
-            ButtonCareer('Ingeniería en Gestión Empresarial'),
-            ButtonCareer('Ingeniería Industrial'),
-            ButtonCareer('Ingeniería Mecatrónica'),
-            ButtonCareer('Ingeniería en Sistemas Computacionales'),
-            ButtonCareer('Licenciatura en Administración'),
+            ButtonCareer('Ingeniería Electromecánica', function: () {
+              sel.setCareer(Careers.Electromecanica);
+              Navigator.of(context).pop();
+            }),
+            ButtonCareer('Ingeniería Electrónica', function: () {
+              sel.setCareer(Careers.Electronica);
+              Navigator.of(context).pop();
+            }),
+            ButtonCareer('Ingeniería en Gestión Empresarial', function: () {
+              sel.setCareer(Careers.Gestion);
+              Navigator.of(context).pop();
+            }),
+            ButtonCareer('Ingeniería Industrial', function: () {
+              sel.setCareer(Careers.Industrial);
+              Navigator.of(context).pop();
+            }),
+            ButtonCareer('Ingeniería Mecatrónica', function: () {
+              sel.setCareer(Careers.Mecatronica);
+              Navigator.of(context).pop();
+            }),
+            ButtonCareer('Ingeniería en Sistemas Computacionales',
+                function: () {
+              sel.setCareer(Careers.Sistemas);
+              Navigator.of(context).pop();
+            }),
           ],
         ),
       ),

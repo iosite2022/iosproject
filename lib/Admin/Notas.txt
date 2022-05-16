@@ -1,10 +1,20 @@
 Aquí se procede a realizar las notas importantes
 
 // Carpeta Imports
+    En la imports se procede a crear y guardar todos las librerias de las clases creadas 
+    en archivos especificos, dichos archivos contienen dentro todas las importaciones de 
+    las clases respectivas.
 
-En la imports se procede a crear y guardar todos las librerias de las clases creadas 
-en archivos especificos, dichos archivos contienen dentro todas las importaciones de 
-las clases respectivas. 
+// Estructura
+    - const
+        Variables reutilizables a lo largo de la vida de la aplicación.
+    - providers
+        Servicios que implemneta la aplicación.
 
-// Please no write en spanglish
-
+// Nomenclaturas
+    - clases
+        Mayúsculas y minúsculas
+        Ej: class MiClase
+    - archivos
+        Igual que el nombre de la clase separado con _ y en minúsculas
+        Ej. mi_clase.dart
