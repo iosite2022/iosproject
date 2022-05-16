@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:iosproject/imports/screens.dart';
-
-import 'package:iosproject/routes/pages.dart';
-import 'package:iosproject/imports/styles_consts.dart';
+import 'package:provider/provider.dart';
+import 'package:iosproject/imports/.providers.dart';
+import 'package:iosproject/imports/.const.dart';
+import 'package:iosproject/imports/.screens.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(AppProviders());
 }
+
+Widget AppProviders() => MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => Select(),
+        ),
+      ],
+      child: MyApp(),
+    );
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -24,8 +33,8 @@ class MyApp extends StatelessWidget {
             const AppBarTheme(centerTitle: true, color: kSecundaryColor),
         primarySwatch: Colors.blue,
       ),
-      home: const Home(),
-      routes: Pages.route,
+      home: Home(),
+      //routes: Pages.route,
     );
   }
 }
