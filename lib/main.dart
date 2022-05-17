@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iosproject/providers/carreras_services.dart';
 import 'package:provider/provider.dart';
 import 'package:iosproject/imports/.providers.dart';
 import 'package:iosproject/imports/.const.dart';
@@ -13,6 +14,9 @@ Widget AppProviders() => MultiProvider(
         ChangeNotifierProvider(
           create: (_) => Select(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => CarrerasServices(),
+        )
       ],
       child: MyApp(),
     );
@@ -34,7 +38,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Home(),
-      //routes: Pages.route,
+      routes: Pages.route,
     );
   }
 }

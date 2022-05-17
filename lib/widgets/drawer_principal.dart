@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:iosproject/screens/electronica.dart';
 import 'package:provider/provider.dart';
 import 'package:iosproject/imports/.providers.dart';
 import 'package:iosproject/imports/.const.dart';
 
-class DrawerPrincipal extends StatelessWidget {
-  const DrawerPrincipal({
+class DrawerPrincipal extends StatefulWidget {
+  DrawerPrincipal({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<DrawerPrincipal> createState() => _DrawerPrincipalState();
+}
+
+Gender? selectedGender;
+enum Gender { industrial, electronica }
+
+class _DrawerPrincipalState extends State<DrawerPrincipal> {
   @override
   Widget build(BuildContext context) {
     final sel = Provider.of<Select>(context);

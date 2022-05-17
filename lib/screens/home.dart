@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:iosproject/providers/carreras_services.dart';
+import 'package:iosproject/screens/industrial.dart';
 import 'package:provider/provider.dart';
 import 'package:iosproject/imports/.providers.dart';
 import 'package:iosproject/imports/.widgets.dart';
