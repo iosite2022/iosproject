@@ -1,15 +1,16 @@
-import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:iosproject/imports/widgets.dart';
+
 import 'package:iosproject/widgets/cadr_swiper.dart';
 import 'package:iosproject/widgets/resusable_carrer_page.dart';
-import 'package:iosproject/widgets/video.dart';
 
 class IngIndustrial extends StatelessWidget {
   const IngIndustrial({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    //   final ingenierasCarreras = Provider.of<CarrerasProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Industrial'),
@@ -45,6 +46,9 @@ class IngIndustrial extends StatelessWidget {
           SizedBox(
             height: 40,
           ),
+          // FadeInImage(
+          //     placeholder: const AssetImage('assets/cargando.gif'),
+          //     image: NetworkImage(ingenierasCarreras.inge.imagen!)),
           CardSwiper()
         ],
       ),
