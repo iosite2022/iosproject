@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iosproject/screens/electronica.dart';
 import 'package:provider/provider.dart';
 import 'package:iosproject/imports/.providers.dart';
 import 'package:iosproject/imports/.const.dart';
