@@ -29,7 +29,7 @@ class BottomBarGnav extends StatelessWidget {
       onTap: (index) {
         sel.setTab(Tabs.values[index]);
       },
-      index: sel.getTabIndex() ?? 0,
+      index: sel.getTabIndex(),
     );
   }
 }

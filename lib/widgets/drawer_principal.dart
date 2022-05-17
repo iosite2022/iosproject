@@ -17,7 +17,7 @@ class DrawerPrincipal extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () {
-                sel.setCareer(null);
+                sel.setCareer(Careers.Start);
                 sel.setTab(Tabs.Home);
                 Navigator.of(context).pop();
               },

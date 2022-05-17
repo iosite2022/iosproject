@@ -1,5 +1,5 @@
 enum Tabs {
   Home,
-  Ppl,
+  Info,
   Directory,
 }

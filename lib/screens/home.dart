@@ -9,11 +9,13 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final sel = Provider.of<Select>(context);
-    return Scaffold(
-      appBar: AppBar(title: HomeTitle()),
-      drawer: DrawerPrincipal(),
-      body: HomeBody(career: sel.getCareer(), tab: sel.getTab()),
-      bottomNavigationBar: BottomBarGnav(),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(title: HomeTitle()),
+        drawer: DrawerPrincipal(),
+        body: HomeBody(career: sel.getCareer(), tab: sel.getTab()),
+        bottomNavigationBar: BottomBarGnav(),
+      ),
     );
   }
 }
@@ -37,3 +39,8 @@ Widget HomeBody({Enum? career, Enum? tab}) => Column(
         ),
       ],
     );
+/*
+Widget bodyOf({Enum? career, Enum? tab}) {
+  return career == null ? Start(tab: tab) : Career(career: career, tab: tab);
+}
+*/

@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:iosproject/imports/.const.dart';
 
 class Select extends ChangeNotifier {
-  Enum? _indexTab;
-  Enum? _indexCareer;
+  Enum _indexTab = Tabs.Home;
+  Enum _indexCareer = Careers.Start;
 
-  void setTab(Enum? index) {
+  void setTab(Enum index) {
     _indexTab = index;
     notifyListeners();
   }
 
-  Enum? getTab() {
+  Enum getTab() {
     return _indexTab;
   }
 
-  int? getTabIndex() {
-    return _indexTab?.index; // == null ? 0 : _indexTab?.index;
+  int getTabIndex() {
+    return _indexTab.index;
   }
 
-  void setCareer(Enum? index) {
+  void setCareer(Enum index) {
     _indexCareer = index;
     notifyListeners();
   }
 
-  Enum? getCareer() {
+  Enum getCareer() {
     return _indexCareer;
   }
 }
