@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iosproject/providers/carreras_providers.dart';
+import 'package:iosproject/providers/carreras_services.dart';
 import 'package:iosproject/screens/industrial.dart';
 import 'package:provider/provider.dart';
 import 'package:iosproject/imports/widgets.dart';
@@ -11,8 +11,9 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TabSelect tab = Provider.of<TabSelect>(context);
-    // final CarrerasProvider tuCarrera = Provider.of<CarrerasProvider>(context);
+    final tab = Provider.of<TabSelect>(context);
+    final tuCarrera = Provider.of<CarrerasServices>(context);
+    print(tuCarrera == null);
     return tab.getCareer() == 0
         ? Scaffold(
             appBar: AppBar(title: HomeTitle()),
