@@ -29,7 +29,7 @@ class CarrerasServices extends ChangeNotifier {
 
     notifyListeners();
 
-    print(ingenierias[0].id);
+    print(ingenierias);
     return ingenierias;
   }
 }

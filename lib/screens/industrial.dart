@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iosproject/imports/widgets.dart';
+import 'package:iosproject/imports/.widgets.dart';
 
 import 'package:iosproject/widgets/cadr_swiper.dart';
 import 'package:iosproject/widgets/resusable_carrer_page.dart';
