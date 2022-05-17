@@ -13,7 +13,6 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     final tab = Provider.of<TabSelect>(context);
     final tuCarrera = Provider.of<CarrerasServices>(context);
-    print(tuCarrera == null);
     return tab.getCareer() == 0
         ? Scaffold(
             appBar: AppBar(title: HomeTitle()),
