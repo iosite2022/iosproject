@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:iosproject/imports/screens.dart';
-import 'package:iosproject/imports/styles_consts.dart';
-import 'package:iosproject/providers/carreras_providers.dart';
-import 'package:iosproject/routes/pages.dart';
 import 'package:iosproject/providers/carreras_services.dart';
 import 'package:provider/provider.dart';
-import 'package:iosproject/models/tab_select.dart';
+import 'package:iosproject/imports/.providers.dart';
+import 'package:iosproject/imports/.const.dart';
+import 'package:iosproject/imports/.screens.dart';
 
 void main() {
   runApp(AppProviders());
@@ -14,7 +12,7 @@ void main() {
 Widget AppProviders() => MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => TabSelect(),
+          create: (_) => Select(),
         ),
         ChangeNotifierProvider(
           create: (_) => CarrerasServices(),

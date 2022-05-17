@@ -4,19 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-//MODELS
-import 'package:iosproject/models/tab_select.dart';
+//PROVIDERS
+import 'package:iosproject/imports/.providers.dart';
 //CONSTANTS
-import 'package:iosproject/imports/styles_consts.dart';
+import 'package:iosproject/imports/.const.dart';
 
 class BottomBarGnav extends StatelessWidget {
   const BottomBarGnav({
     Key? key,
+    Enum? tab,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final tabSelect = Provider.of<TabSelect>(context);
+    final sel = Provider.of<Select>(context);
     return CurvedNavigationBar(
       backgroundColor: kPrimaryColor,
       color: kSecundaryColor,
@@ -26,9 +27,9 @@ class BottomBarGnav extends StatelessWidget {
         Icon(FontAwesomeIcons.addressBook, color: kIconColor),
       ],
       onTap: (index) {
-        print(index);
-        tabSelect.setTab(index);
+        sel.setTab(Tabs.values[index]);
       },
+      index: sel.getTabIndex(),
     );
   }
 }
