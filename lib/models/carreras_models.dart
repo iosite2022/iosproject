@@ -1,38 +1,42 @@
-// To parse this JSON data, do
+// To parserequired this JSON data, do
 //
 //     final carrerasModels = carrerasModelsFromMap(jsonString);
 
 import 'dart:convert';
 
-class Inge {
-  Inge(
-      {required this.mision,
-      required this.vision,
-      this.imagen,
+class Carreras {
+  Carreras(
+      {required this.imagen,
+      required this.mision,
       required this.objetivo,
+      required this.video,
+      required this.vision,
       this.id});
 
+  String imagen;
   String mision;
-  String vision;
-  String? imagen;
   String objetivo;
+  String video;
+  String vision;
   String? id;
 
-  factory Inge.fromJson(String str) => Inge.fromMap(json.decode(str));
+  factory Carreras.fromJson(String str) => Carreras.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
-  factory Inge.fromMap(Map<String, dynamic> json) => Inge(
-        mision: json["Mision"],
-        vision: json["Vision"],
+  factory Carreras.fromMap(Map<String, dynamic> json) => Carreras(
         imagen: json["imagen"],
+        mision: json["mision"],
         objetivo: json["objetivo"],
+        video: json["video"],
+        vision: json["vision"],
       );
 
   Map<String, dynamic> toMap() => {
-        "Mision": mision,
-        "Vision": vision,
         "imagen": imagen,
+        "mision": mision,
         "objetivo": objetivo,
+        "video": video,
+        "vision": vision,
       };
 }

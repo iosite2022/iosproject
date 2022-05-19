@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:iosproject/screens/prueba.dart';
+
 import 'package:provider/provider.dart';
 import 'package:iosproject/imports/.providers.dart';
 import 'package:iosproject/imports/.const.dart';
-import 'package:iosproject/imports/.screens.dart';
 
 void main() {
   runApp(AppProviders());
@@ -36,7 +37,8 @@ class MyApp extends StatelessWidget {
             const AppBarTheme(centerTitle: true, color: kSecundaryColor),
         primarySwatch: Colors.blue,
       ),
-      home: Home(),
+      // home: Home(),
+      home: Prueba(),
       //routes: Pages.route,
     );
   }

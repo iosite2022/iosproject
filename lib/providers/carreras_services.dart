@@ -6,8 +6,8 @@ import 'package:iosproject/models/carreras_models.dart';
 
 class CarrerasServices extends ChangeNotifier {
   final String _baseUrl = 'ite-ensenada-default-rtdb.firebaseio.com';
-  final List<Inge> ingenierias = [];
-  late Inge carreraSeleccionada;
+  final List<Carreras> ingenierias = [];
+  late Carreras carreraSeleccionada;
 
   CarrerasServices() {
     carrerasUniversitarias();
@@ -17,12 +17,12 @@ class CarrerasServices extends ChangeNotifier {
   Future carrerasUniversitarias() async {
     notifyListeners();
 
-    final url = Uri.https(_baseUrl, 'Carreras.json');
+    final url = Uri.https(_baseUrl, 'carreras.json');
     final respuesta = await http.get(url);
     // Vamos a crear un mapa con la información que regresa
     final Map<String, dynamic> mapaDeCarreras = json.decode(respuesta.body);
     mapaDeCarreras.forEach((key, valor) {
-      final IngeoTemporal = Inge.fromMap(valor);
+      final IngeoTemporal = Carreras.fromMap(valor);
       IngeoTemporal.id = key;
       ingenierias.add(IngeoTemporal);
     });

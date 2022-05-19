@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:iosproject/widgets/video.dart';
 
 class ResuableCarrerPage extends StatelessWidget {
   final String texts;
