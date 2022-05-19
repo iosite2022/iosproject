@@ -1,42 +1,47 @@
-// To parserequired this JSON data, do
-//
-//     final carrerasModels = carrerasModelsFromMap(jsonString);
-
 import 'dart:convert';
 
-class Carreras {
-  Carreras(
-      {required this.imagen,
-      required this.mision,
-      required this.objetivo,
-      required this.video,
-      required this.vision,
+class CarrerModel {
+  CarrerModel(
+      {this.imagenMision,
+      this.imagenObjetivo,
+      this.imagenVision,
+      this.mision,
+      this.objetivo,
+      this.video,
+      this.vision,
       this.id});
 
-  String imagen;
-  String mision;
-  String objetivo;
-  String video;
-  String vision;
+  String? imagenMision;
+  String? imagenObjetivo;
+  String? imagenVision;
+  String? mision;
+  String? objetivo;
+  String? video;
+  String? vision;
   String? id;
 
-  factory Carreras.fromJson(String str) => Carreras.fromMap(json.decode(str));
+  factory CarrerModel.fromJson(String str) =>
+      CarrerModel.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
-  factory Carreras.fromMap(Map<String, dynamic> json) => Carreras(
-        imagen: json["imagen"],
-        mision: json["mision"],
-        objetivo: json["objetivo"],
-        video: json["video"],
-        vision: json["vision"],
+  factory CarrerModel.fromMap(Map<String, dynamic> json) => CarrerModel(
+        imagenMision: json["imagenMision:"],
+        imagenObjetivo: json["imagenObjetivo:"],
+        imagenVision: json["imagenVision:"],
+        mision: json["mision:"],
+        objetivo: json["objetivo:"],
+        video: json["video:"],
+        vision: json["vision:"],
       );
 
   Map<String, dynamic> toMap() => {
-        "imagen": imagen,
-        "mision": mision,
-        "objetivo": objetivo,
-        "video": video,
-        "vision": vision,
+        "imagenMision:": imagenMision,
+        "imagenObjetivo:": imagenObjetivo,
+        "imagenVision:": imagenVision,
+        "mision:": mision,
+        "objetivo:": objetivo,
+        "video:": video,
+        "vision:": vision,
       };
 }
