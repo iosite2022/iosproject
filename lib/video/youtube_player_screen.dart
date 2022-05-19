@@ -12,17 +12,20 @@ class YoutubePlayerScreen extends StatefulWidget {
 
 class _YoutubePlayerScreenState extends State<YoutubePlayerScreen> {
   late YoutubePlayerController _controller;
+  late OrientationBuilder _controllerOrientation;
 
   @override
   void initState() {
     _controller = YoutubePlayerController(
         initialVideoId:
             YoutubePlayerController.convertUrlToId(widget.yotube_url!)!,
-        params: const YoutubePlayerParams(
-          loop: true,
+        params: YoutubePlayerParams(
+          mute: false,
+          loop: false,
           color: 'transparent',
           desktopMode: true,
-          showFullscreenButton: kIsWeb,
+          playsInline: true,
+          showFullscreenButton: kIsWeb ? true : true,
           autoPlay: true,
           strictRelatedVideos: true,
         ));
@@ -32,11 +35,30 @@ class _YoutubePlayerScreenState extends State<YoutubePlayerScreen> {
   }
 
   @override
+  void setState(VoidCallback fn) {
+    // TODO: implement setState
+
+    if (_controllerOrientation == 'Orientation.portrait') {}
+    ;
+    super.setState(fn);
+  }
+
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return SizedBox(
-      height: kIsWeb ? size.height / 1.13 : size.height,
+    final orientation = MediaQuery.of(context).orientation;
+    print(orientation);
+    return Container(
+      // height: kIsWeb ? size.height / 1.13 : size.height * .40,
+      // width: size.width,
+
+      height: orientation.toString() == 'Orientation.portrait'
+          ? kIsWeb
+              ? size.height / 1.13
+              : size.height * 0.30
+          : size.height * 0.8,
       width: size.width,
+      padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
       child: YoutubePlayerControllerProvider(
         controller: _controller,
         child: YoutubePlayerIFrame(

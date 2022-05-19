@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -16,38 +17,36 @@ class _PruebaState extends State<Prueba> {
   int index = 0;
   @override
   Widget build(BuildContext context) {
-    final infoCareer = Provider.of<CarrerasServices>(context);
-    final seleccionar = Provider.of<Select>(context);
+    final size = MediaQuery.of(context).size;
+    print(size.flipped);
 
     return Scaffold(
       appBar: AppBar(
         title: Text('udiofu'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(infoCareer.ingenierias[index].mision!),
-          TextButton(
-              onPressed: () {
-                setState(() {
-                  index++;
-                });
-              },
-              child: Text('presiona')),
-          Center(
-            child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => YoutubePlayerScreen(
-                                yotube_url:
-                                    'https://www.youtube.com/watch?v=POVkvhDEcv4',
-                              )));
-                },
-                child: Text('ver mas')),
-          )
-        ],
+      body: SingleChildScrollView(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            // Text(infoCareer.ingenierias[index].mision!),
+            // TextButton(
+            //     onPressed: () {
+            //       setState(() {
+            //         index++;
+            //       });
+            //     },
+            //     child: Text('presiona')),
+
+            Container(
+              //   height: kIsWeb ? size.height / 1.13 : size.height * .7,
+
+              child: YoutubePlayerScreen(
+                yotube_url: 'https://www.youtube.com/watch?v=POVkvhDEcv4',
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
