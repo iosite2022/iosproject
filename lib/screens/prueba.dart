@@ -13,10 +13,12 @@ class Prueba extends StatefulWidget {
 }
 
 class _PruebaState extends State<Prueba> {
+  int index = 0;
   @override
   Widget build(BuildContext context) {
     final infoCareer = Provider.of<CarrerasServices>(context);
     final seleccionar = Provider.of<Select>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('udiofu'),
@@ -24,7 +26,14 @@ class _PruebaState extends State<Prueba> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text(seleccionar.getCareer().index.toString()),
+          Text(infoCareer.ingenierias[index].mision!),
+          TextButton(
+              onPressed: () {
+                setState(() {
+                  index++;
+                });
+              },
+              child: Text('presiona')),
           Center(
             child: ElevatedButton(
                 onPressed: () {
