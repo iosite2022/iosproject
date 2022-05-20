@@ -5,6 +5,7 @@ import 'package:iosproject/imports/.const.dart';
 import 'package:iosproject/imports/.screens.dart';
 
 void main() {
+  print('Loading providers');
   runApp(AppProviders());
 }
 
@@ -14,7 +15,7 @@ Widget AppProviders() => MultiProvider(
           create: (_) => Select(),
         ),
         ChangeNotifierProvider(
-          create: (_) => CarrerasServices(),
+          create: (_) => DbService(),
         )
       ],
       child: MyApp(),
@@ -25,19 +26,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('Loading App');
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'ITE',
-      theme: ThemeData(
-        drawerTheme: const DrawerThemeData(backgroundColor: kPrimaryColor),
-        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-            backgroundColor: kSecundaryColor),
-        appBarTheme:
-            const AppBarTheme(centerTitle: true, color: kSecundaryColor),
-        primarySwatch: Colors.blue,
-      ),
+      theme: themeData(),
       home: Home(),
-      //routes: Pages.route,
     );
   }
 }
+
+ThemeData themeData() => ThemeData(
+      drawerTheme: const DrawerThemeData(backgroundColor: kPrimaryColor),
+      bottomNavigationBarTheme:
+          const BottomNavigationBarThemeData(backgroundColor: kSecundaryColor),
+      appBarTheme: const AppBarTheme(centerTitle: true, color: kSecundaryColor),
+      primarySwatch: Colors.blue,
+    );

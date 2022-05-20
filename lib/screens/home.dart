@@ -8,13 +8,15 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sel = Provider.of<Select>(context);
-    final infoCareer = Provider.of<CarrerasServices>(context);
+    var sel = Provider.of<Select>(context);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(title: HomeTitle()),
         drawer: DrawerPrincipal(),
-        body: HomeBody(career: sel.getCareer(), tab: sel.getTab()),
+        body: CareerBody(
+          career: sel.career,
+          tab: sel.tab,
+        ),
         bottomNavigationBar: BottomBarGnav(),
       ),
     );
@@ -23,12 +25,27 @@ class Home extends StatelessWidget {
 
 Widget HomeTitle() => Text("Instituto Teconologico de Ensenada");
 
-Widget HomeBody({Enum? career, Enum? tab}) => Column(
+class CareerBody extends StatelessWidget {
+  final Enum? career;
+  final Enum? tab;
+  CareerBody({Key? key, this.career, this.tab}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var info = Provider.of<DbService>(context);
+    info.fetchCareerInfo(career);
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Center(
           child: Text(
-            'Career:' + (career == null ? "NA" : career.toString()),
+            'info:' + (info.career?.info?.vision ?? "null"),
+            textAlign: TextAlign.center,
+          ),
+        ),
+        Center(
+          child: Text(
+            'Tab:' + (career == null ? "NA" : career.toString()),
             textAlign: TextAlign.center,
           ),
         ),
@@ -40,8 +57,5 @@ Widget HomeBody({Enum? career, Enum? tab}) => Column(
         ),
       ],
     );
-/*
-Widget bodyOf({Enum? career, Enum? tab}) {
-  return career == null ? Start(tab: tab) : Career(career: career, tab: tab);
+  }
 }
-*/

@@ -1,2 +1,2 @@
 export 'package:iosproject/providers/select.dart';
-export 'package:iosproject/providers/carreras_services.dart';
+export 'package:iosproject/providers/db_service.dart';
