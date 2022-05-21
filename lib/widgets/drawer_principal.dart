@@ -27,7 +27,7 @@ class _DrawerPrincipalState extends State<DrawerPrincipal> {
           children: [
             GestureDetector(
               onTap: () {
-                sel.setCareer(Careers.Start);
+                sel.setCareer(null);
                 sel.setTab(Tabs.Home);
                 Navigator.of(context).pop();
               },

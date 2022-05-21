@@ -1,5 +1,4 @@
 enum Careers {
-  Start,
   Administracion,
   Electromecanica,
   Electronica,
