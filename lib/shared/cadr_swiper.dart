@@ -9,10 +9,15 @@ class CardSwiper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
+    final orientation = MediaQuery.of(context).orientation;
+    print(orientation);
     return SizedBox(
-      height: size.height * 0.4,
-      width: size.width,
+      height: orientation.toString() == 'Orientation.portrait'
+          ? size.height * 0.4
+          : size.height * 0.7,
+      width: orientation.toString() == 'Orientation.landscape'
+          ? size.width * 0.6
+          : size.width,
       child: Swiper(
         itemBuilder: (BuildContext context, int index) {
           return ClipRRect(
@@ -26,6 +31,7 @@ class CardSwiper extends StatelessWidget {
         itemCount: 5,
         viewportFraction: 0.8,
         scale: 0.9,
+        autoplay: true,
       ),
     );
   }
