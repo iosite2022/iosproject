@@ -18,3 +18,7 @@ Aquí se procede a realizar las notas importantes
     - archivos
         Igual que el nombre de la clase separado con _ y en minúsculas
         Ej. mi_clase.dart
+
+//Variables privadas
+    - String _privada
+    Son variables locales de las clases especificas donde fueron declaradas

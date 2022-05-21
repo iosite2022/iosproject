@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
             const AppBarTheme(centerTitle: true, color: kSecundaryColor),
         primarySwatch: Colors.blue,
       ),
-      // home: Home(),
+      //home: Home(),
       home: Prueba(),
       //routes: Pages.route,
     );

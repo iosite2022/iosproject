@@ -35,15 +35,6 @@ class _YoutubePlayerScreenState extends State<YoutubePlayerScreen> {
   }
 
   @override
-  void setState(VoidCallback fn) {
-    // TODO: implement setState
-
-    if (_controllerOrientation == 'Orientation.portrait') {}
-    ;
-    super.setState(fn);
-  }
-
-  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final orientation = MediaQuery.of(context).orientation;

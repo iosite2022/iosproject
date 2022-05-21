@@ -35,8 +35,8 @@ dependencies:
   font_awesome_flutter: ^10.1.0
   http: ^0.13.4
   provider: ^6.0.2
-
-
+  syncfusion_flutter_pdfviewer: ^20.1.56-beta
+  url_launcher: ^6.1.2
   youtube_player_iframe: ^2.3.0
   
 

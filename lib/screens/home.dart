@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:iosproject/imports/.providers.dart';
 import 'package:iosproject/imports/.widgets.dart';
@@ -16,6 +17,7 @@ class Home extends StatelessWidget {
         drawer: DrawerPrincipal(),
         body: HomeBody(career: sel.getCareer(), tab: sel.getTab()),
         bottomNavigationBar: BottomBarGnav(),
+        floatingActionButton: FloatButtons(),
       ),
     );
   }
@@ -40,8 +42,3 @@ Widget HomeBody({Enum? career, Enum? tab}) => Column(
         ),
       ],
     );
-/*
-Widget bodyOf({Enum? career, Enum? tab}) {
-  return career == null ? Start(tab: tab) : Career(career: career, tab: tab);
-}
-*/
