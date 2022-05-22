@@ -68,9 +68,9 @@ class WidgetHome extends StatelessWidget {
               height: 10,
             ),
 
-            YoutubePlayerScreen(
-              yotube_url: 'https://www.youtube.com/watch?v=POVkvhDEcv4',
-            ),
+            // YoutubePlayerScreen(
+            //   yotube_url: 'https://www.youtube.com/watch?v=POVkvhDEcv4',
+            // ),
           ],
         ),
       ),

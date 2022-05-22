@@ -1,41 +1,46 @@
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
+import 'package:iosproject/imports/.providers.dart';
 import '../imports/.widgets.dart';
 
 class HomeCarrers extends StatelessWidget {
-  final String carrersName;
+  final Enum? eCareer;
 
-  const HomeCarrers({Key? key, required this.carrersName}) : super(key: key);
+  HomeCarrers({
+    Key? key,
+    // this.carrersName,
+    this.eCareer,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
+    DbService info = Provider.of<DbService>(context);
+    info.fetchCareerInfo(eCareer);
     return SizedBox(
       width: size.width,
       child: SingleChildScrollView(
         child: Column(
           children: [
-            Text(carrersName),
-
+            CardSwiper(),
             visionYobjetivo(
               size: size,
               VisionYObjetivo: 'Vision ',
-              textVisionYObjetivo: 'Estos es la vision de home',
+              textVisionYObjetivo: info.career?.info?.vision ?? "null",
               imageVisionYObjetivo: 'https://i.ibb.co/8YHjgsL/casa2.jpg',
             ),
             divisionDiver(),
             Mision(
               size: size,
               Misionn: 'Mision',
-              textMision: 'orffrfo',
-              imageMison: '',
+              textMision: info.career?.info?.mision ?? "null",
+              imageMison: 'https://i.ibb.co/8YHjgsL/casa2.jpg',
             ),
             divisionDiver(),
             visionYobjetivo(
               size: size,
               VisionYObjetivo: 'Objetivo',
-              textVisionYObjetivo: 'efiokfpoidpoip',
+              textVisionYObjetivo: info.career?.info?.objetivo ?? "null",
               imageVisionYObjetivo:
                   'https://josefacchin.com/wp-content/uploads/2020/02/como-quitar-el-fondo-de-una-imagen.png',
             ),
@@ -43,15 +48,15 @@ class HomeCarrers extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            CardSwiper(),
+
             // CardSwiper(),
             SizedBox(
               height: 10,
             ),
 
-            YoutubePlayerScreen(
-              yotube_url: 'https://www.youtube.com/watch?v=POVkvhDEcv4',
-            ),
+            // YoutubePlayerScreen(
+            //   yotube_url: 'https://www.youtube.com/watch?v=POVkvhDEcv4',
+            // ),
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iosproject/const/tabs.dart';
+import 'package:iosproject/shared/home_carrers.dart';
 import 'package:provider/provider.dart';
 import 'package:iosproject/imports/.providers.dart';
 import 'package:iosproject/imports/.widgets.dart';
@@ -34,8 +35,6 @@ class BodySelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var info = Provider.of<DbService>(context);
-    info.fetchCareerInfo(career);
     return career == null
         ? tab == Tabs.Home
             ? WidgetHome()
@@ -43,7 +42,12 @@ class BodySelector extends StatelessWidget {
                 ? Triptico()
                 : Container(child: Text('directory'))
         : tab == Tabs.Home
-            ? Container(child: Text(career.toString() + ':Home'))
+            // ? Container(child: Text(career.toString() + ':Home'))
+            ? HomeCarrers(
+                eCareer: career,
+                // carrersName: '',
+                // career: info.career,
+              )
             : tab == Tabs.Info
                 ? Container(child: Text(career.toString() + ':Info'))
                 : Container(child: Text(career.toString() + ':Directory'));
