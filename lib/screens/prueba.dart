@@ -1,6 +1,8 @@
-import 'package:iosproject/widgets/widget_home.dart';
+import 'package:iosproject/shared/home_carrers.dart';
+import 'package:iosproject/shared/speed_dial.dart';
+
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+
 import '../imports/.widgets.dart';
 
 class Prueba extends StatefulWidget {
@@ -21,17 +23,16 @@ class _PruebaState extends State<Prueba> {
       appBar: AppBar(
         title: Text('udiofu'),
       ),
-      floatingActionButton: FloatButtons(),
-      body: ElevatedButton(
-        onPressed: () {
-          launch('mailto:al18760082@ite.edu.mx?subject= asunto &body=');
-        },
-        child: Text("Send A Email"),
+      floatingActionButton: SpeedDialButton(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            HomeCarrers(
+              carrersName: 'Administracion',
+            ),
+          ],
+        ),
       ),
-      //  SfPdfViewer.network(
-      //     'https://www.ensenada.tecnm.mx/wp-content/uploads/2020/06/Manual_de_Identidad_Grafica-1.pdf')
-
-      //    Stack(children: [WidgetHome()]),
     );
   }
 }

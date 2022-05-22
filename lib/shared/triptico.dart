@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
-class triptico extends StatelessWidget {
-  const triptico({Key? key}) : super(key: key);
+class Triptico extends StatelessWidget {
+  const Triptico({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

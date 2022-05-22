@@ -73,6 +73,23 @@ class _DrawerPrincipalState extends State<DrawerPrincipal> {
               sel.setCareer(Careers.Sistemas);
               Navigator.of(context).pop();
             }),
+            const Divider(color: Colors.black, thickness: 2),
+            GestureDetector(
+              onTap: () {
+                sel.setCareer(null);
+                sel.setTab(Tabs.Home);
+                Navigator.of(context).pop();
+              },
+              child: Container(
+                padding: EdgeInsets.fromLTRB(3, 30, 3, 25),
+                child: Column(
+                  children: [
+                    Image.asset('assets/logoITE.png'),
+                    //TextButton(onPressed: () {}, child: Text('Inicio'))
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),

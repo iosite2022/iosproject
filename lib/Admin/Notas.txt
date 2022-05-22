@@ -22,3 +22,8 @@ Aquí se procede a realizar las notas importantes
 //Variables privadas
     - String _privada
     Son variables locales de las clases especificas donde fueron declaradas
+
+//Carpeta shared
+
+     Se almacenan widgets que son compartidas con las diferentes vistas de la aplicación.
+    

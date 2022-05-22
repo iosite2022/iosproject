@@ -1,54 +1,35 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
 import '../imports/.widgets.dart';
 
-class WidgetHome extends StatelessWidget {
-  const WidgetHome({Key? key}) : super(key: key);
+class HomeCarrers extends StatelessWidget {
+  final String carrersName;
+
+  const HomeCarrers({Key? key, required this.carrersName}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final orientation = MediaQuery.of(context).orientation;
+
     return SizedBox(
-      height: orientation.toString() == 'Orientation.portrait'
-          ? size.height * 90
-          : size.height,
       width: size.width,
       child: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: EdgeInsets.only(right: 60),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Image.asset('assets/tecnm.png',
-                        height: size.height * .090, width: size.width * .90),
-                  ),
-                  Expanded(
-                    child: Image.asset('assets/logoITE.png',
-                        height: size.height * .090, width: size.width * .90),
-                  )
-                ],
-              ),
-            ),
+            Text(carrersName),
 
             visionYobjetivo(
               size: size,
               VisionYObjetivo: 'Vision ',
-              textVisionYObjetivo: 'Esto es una vision',
+              textVisionYObjetivo: 'Estos es la vision de home',
+              imageVisionYObjetivo: 'https://i.ibb.co/8YHjgsL/casa2.jpg',
             ),
             divisionDiver(),
             Mision(
               size: size,
               Misionn: 'Mision',
               textMision: 'orffrfo',
-              imageMison:
-                  'https://josefacchin.com/wp-content/uploads/2020/02/como-quitar-el-fondo-de-una-imagen.png',
+              imageMison: '',
             ),
             divisionDiver(),
             visionYobjetivo(

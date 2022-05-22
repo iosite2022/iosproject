@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:iosproject/const/tabs.dart';
-import 'package:iosproject/shared/triptico.dart';
-import 'package:iosproject/widgets/widget_home.dart';
 import 'package:provider/provider.dart';
 import 'package:iosproject/imports/.providers.dart';
 import 'package:iosproject/imports/.widgets.dart';
@@ -21,13 +19,13 @@ class Home extends StatelessWidget {
           tab: sel.tab,
         ),
         bottomNavigationBar: BottomBarGnav(),
-        floatingActionButton: FloatButtons(),
+        floatingActionButton: SpeedDialButton(),
       ),
     );
   }
 }
 
-Widget HomeTitle() => Text("Instituto Teconologico de Ensenada");
+Widget HomeTitle() => Text("TECNM ENSENADA");
 
 class BodySelector extends StatelessWidget {
   final Enum? career;
@@ -42,7 +40,7 @@ class BodySelector extends StatelessWidget {
         ? tab == Tabs.Home
             ? WidgetHome()
             : tab == Tabs.Info
-                ? triptico()
+                ? Triptico()
                 : Container(child: Text('directory'))
         : tab == Tabs.Home
             ? Container(child: Text(career.toString() + ':Home'))

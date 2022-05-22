@@ -3,8 +3,12 @@ import 'package:provider/provider.dart';
 import 'package:iosproject/imports/.providers.dart';
 import 'package:iosproject/imports/.const.dart';
 import 'package:iosproject/imports/.screens.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   print('Loading providers');
   runApp(AppProviders());
 }
@@ -32,6 +36,8 @@ class MyApp extends StatelessWidget {
       title: 'ITE',
       theme: themeData(),
       home: Home(),
+
+      //home: Prueba(),
     );
   }
 }

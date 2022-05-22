@@ -20,7 +20,7 @@ class _YoutubePlayerScreenState extends State<YoutubePlayerScreen> {
         initialVideoId:
             YoutubePlayerController.convertUrlToId(widget.yotube_url!)!,
         params: YoutubePlayerParams(
-          mute: false,
+          mute: true,
           loop: false,
           color: 'transparent',
           desktopMode: true,

@@ -18,3 +18,11 @@ const kTextStyleGeneral = TextStyle(
   fontSize: 15,
   color: Colors.white,
 );
+
+const kTextStyleMisionVisionObjetivo = TextStyle(
+  fontSize: 15,
+);
+
+const kTextSyleCarrerTitle = TextStyle(
+  fontSize: 25,
+);
