@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iosproject/const/tabs.dart';
 import 'package:iosproject/shared/home_carrers.dart';
 import 'package:provider/provider.dart';
 import 'package:iosproject/imports/.providers.dart';
 import 'package:iosproject/imports/.widgets.dart';
+
+import '../shared/contac_cordinador.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -39,8 +42,13 @@ class BodySelector extends StatelessWidget {
         ? tab == Tabs.Home
             ? WidgetHome()
             : tab == Tabs.Info
-                ? Triptico()
-                : Container(child: Text('directory'))
+                ? TripticoPrincipal()
+                : ContacCordinador(
+                    CoordName: 'Lourdez Estephanie Campero León',
+                    CoordNumber: '6461321665',
+                    CoordEmail: 'corsdinacionsistemas@ite.edu.mx',
+                    CareerName: 'Ingeniería en Sistemas Computacionales',
+                    career: FontAwesomeIcons.addressCard)
         : tab == Tabs.Home
             // ? Container(child: Text(career.toString() + ':Home'))
             ? HomeCarrers(

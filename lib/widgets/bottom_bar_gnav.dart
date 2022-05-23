@@ -19,6 +19,7 @@ class BottomBarGnav extends StatelessWidget {
   Widget build(BuildContext context) {
     final sel = Provider.of<Select>(context);
     return CurvedNavigationBar(
+      // animationDuration: const Duration(milliseconds: 8000),
       backgroundColor: kPrimaryColor,
       color: kSecundaryColor,
       items: [
