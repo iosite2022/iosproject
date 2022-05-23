@@ -42,13 +42,15 @@ class BodySelector extends StatelessWidget {
         ? tab == Tabs.Home
             ? WidgetHome()
             : tab == Tabs.Info
-                ? TripticoPrincipal()
+                // ? TripticoPrincipal()
+                ? Container(child: Text('aqui va el triptico'))
                 : ContacCordinador(
                     CoordName: 'Lourdez Estephanie Campero León',
                     CoordNumber: '6461321665',
                     CoordEmail: 'corsdinacionsistemas@ite.edu.mx',
                     CareerName: 'Ingeniería en Sistemas Computacionales',
                     career: FontAwesomeIcons.addressCard)
+        // : Container(child: Text('aqui va el coordinador'))
         : tab == Tabs.Home
             // ? Container(child: Text(career.toString() + ':Home'))
             ? HomeCarrers(
