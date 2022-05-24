@@ -61,11 +61,25 @@ class BodySelector extends StatelessWidget {
               )
             : tab == Tabs.Info
                 ? Container(child: Text(career.toString() + ':Info'))
+                // ? TripticoPrincipal()
+                ? Container(child: Text('aqui va el triptico'))
                 : ContacCordinador(
                     CoordName: 'Lourdez Estephanie Campero León',
                     CoordNumber: '6461321665',
                     CoordEmail: 'corsdinacionsistemas@ite.edu.mx',
                     CareerName: 'Ingeniería en Sistemas Computacionales',
                     career: FontAwesomeIcons.addressCard);
+                    career: FontAwesomeIcons.addressCard)
+        // : Container(child: Text('aqui va el coordinador'))
+        : tab == Tabs.Home
+            // ? Container(child: Text(career.toString() + ':Home'))
+            ? HomeCarrers(
+                eCareer: career,
+                // carrersName: '',
+                // career: info.career,
+              )
+            : tab == Tabs.Info
+                ? Container(child: Text(career.toString() + ':Info'))
+                : Container(child: Text(career.toString() + ':Directory'));
   }
 }
