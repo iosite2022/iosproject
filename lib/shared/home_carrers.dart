@@ -5,22 +5,23 @@ import 'package:iosproject/imports/.providers.dart';
 import '../imports/.widgets.dart';
 
 class HomeCarrers extends StatelessWidget {
-  final String CareerName;
-  final String CarrerDescription;
-  final Enum? eCareer;
+  String CareerName = 'CareerName';
+  String CarrerDescription = 'CarrerDescription';
+  Enum? career;
 
   HomeCarrers({
     Key? key,
-    this.eCareer,
-    required this.CareerName,
-    required this.CarrerDescription,
+    this.career,
+    // required this.CareerName,
+    // required this.CarrerDescription,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    DbService info = Provider.of<DbService>(context);
-    info.fetchCareerInfo(eCareer);
+    DbServiceCareer careerSvc = Provider.of<DbServiceCareer>(context);
+    careerSvc.fetchCareerInfo(career);
+    // print(info.career?.info?.vision ?? '');
     return SizedBox(
       width: size.width,
       child: SingleChildScrollView(
@@ -32,16 +33,18 @@ class HomeCarrers extends StatelessWidget {
                 textAlign: TextAlign.center,
                 readOnly: true,
                 decoration: InputDecorations.authInputDecoration(
-                  hintText: CareerName,
+                  hintText: careerSvc.career?.name ?? '',
                   labelText: '',
                 ),
               ),
             ),
-            Text(CarrerDescription),
+            Text(careerSvc.career?.home?.description ?? ''),
             SizedBox(
               height: 20,
             ),
-            CardSwiper(),
+            CardSwiper(
+              images: careerSvc.career?.home?.images,
+            ),
             SizedBox(
               height: 10,
             ),

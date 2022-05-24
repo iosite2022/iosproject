@@ -5,11 +5,11 @@ import 'package:iosproject/const/db_paths.dart';
 import 'package:iosproject/models/career.dart';
 import 'package:iosproject/imports/.const.dart';
 
-class DbService extends ChangeNotifier {
+class DbServiceCareer extends ChangeNotifier {
   Career? career;
   Enum? eCareer;
   DbService() {
-    print('Loading DbService');
+    print('Loading DbServiceCareer');
   }
 
   Future fetchCareerInfo(Enum? eCareerL) async {
@@ -17,9 +17,10 @@ class DbService extends ChangeNotifier {
       final url =
           Uri.https(DbPaths.authority, DbPaths.getUnencodedPath(eCareerL));
       final response = await http.get(url);
-      Career careerL = Career.fromJson(json.decode(response.body));
+      // print(response.body);
+      Career careerL = Career.fromJson(response.body);
       career = careerL;
-      eCareer = eCareerL;
+      eCareer = eCareerL; //!DO NOT REMOVE OR COMMENT LINE
       notifyListeners();
     }
   }

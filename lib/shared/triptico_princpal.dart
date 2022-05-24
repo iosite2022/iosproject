@@ -1,74 +1,64 @@
 import 'package:flutter/material.dart';
+import 'package:iosproject/const/careers.dart';
 import 'package:iosproject/const/styles.dart';
-
+import 'package:iosproject/providers/db_service_career.dart';
+import 'package:iosproject/providers/db_service_home.dart';
+import 'package:provider/provider.dart';
 import '../imports/.widgets.dart';
 
-class TripticoPrincipal extends StatefulWidget {
-  const TripticoPrincipal({Key? key}) : super(key: key);
+class TripticoPrincipal extends StatelessWidget {
+  TripticoPrincipal({
+    Key? key,
+  }) : super(key: key);
 
-  @override
-  State<TripticoPrincipal> createState() => _TripticoPrincipalState();
-}
-
-class _TripticoPrincipalState extends State<TripticoPrincipal> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final imageList = [
-      "https://www.ensenada.tecnm.mx/wp-content/uploads/2022/03/Convocatoria-2022-2.jpeg",
-      "https://www.ensenada.tecnm.mx/wp-content/uploads/2022/03/Convocatoria-2022-2.jpeg",
-    ];
-
-    return SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child:
-            /*Column(children: [
-      TitleInfo(titleInfo: "CONVOCATORIA"),
-      ListView.builder(
-      //scrollDirection: Axis.vertical,
+    DbServiceHome homeSvc = Provider.of<DbServiceHome>(context);
+    return ListView.builder(
       shrinkWrap: true,
-        itemCount: imageList.length,
-        itemBuilder: ((context, index) {
+      itemCount: homeSvc.home?.tript?.length ?? 0,
+      itemBuilder: ((context, index) {
         return Column(
           children: [
             DividerInfo(),
-            ImagesInfo(imageItem: imageList[index], size: size,),
+            ImagesInfo(
+              imageItem: homeSvc.home?.tript?[index] ?? "",
+              size: size,
+            ),
           ],
         );
-      })),]
-    )*/
-            Column(
-          children: [
-            SizedBox(height: 15),
-            TitleInfo(
-              titleInfo: 'Convocatoria',
-            ),
-            DividerInfo(),
-            ImagesInfo(imageItem: imageList[0], size: size),
-            DividerInfo(),
-            //Si es Triptico, Agrega otra Vista
-            imageList.length > 1
-                ? ImagesInfo(imageItem: imageList[1], size: size)
-                : Divider(),
-            imageList.length > 1 ? DividerInfo() : Divider(),
-          ],
-        ));
+      }),
+    );
   }
 }
 
-class TitleInfo extends StatelessWidget {
-  const TitleInfo({
+class TripticoCarreras extends StatelessWidget {
+  final Enum? career;
+  TripticoCarreras({
     Key? key,
-    required this.titleInfo,
+    this.career,
   }) : super(key: key);
-
-  final String titleInfo;
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      titleInfo,
-      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+    final size = MediaQuery.of(context).size;
+    DbServiceCareer careerSvc = Provider.of<DbServiceCareer>(context);
+    careerSvc.fetchCareerInfo(career);
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: careerSvc.career?.info?.tript?.length ?? 0,
+      itemBuilder: ((context, index) {
+        return Column(
+          children: [
+            DividerInfo(),
+            ImagesInfo(
+              imageItem: careerSvc.career?.info?.tript?[index] ?? "",
+              size: size,
+            ),
+          ],
+        );
+      }),
     );
   }
 }

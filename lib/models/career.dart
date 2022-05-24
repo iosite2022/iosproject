@@ -1,90 +1,64 @@
+import 'dart:convert';
+
 class Career {
   Career({
-    this.contacts,
+    this.contact,
     this.home,
     this.info,
+    this.name,
   });
 
-  Contacts? contacts;
+  Contact? contact;
   Home? home;
   Info? info;
-
-  factory Career.fromJson(Map<String, dynamic> json) => Career(
-        contacts: Contacts.fromJson(json["contacts"]),
-        home: Home.fromJson(json["home"]),
-        info: Info.fromJson(json["info"]),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "contacts": contacts?.toJson(),
-        "home": home?.toJson(),
-        "info": info?.toJson(),
-      };
-}
-
-class Contacts {
-  Contacts({
-    this.coordinacion,
-    this.difusion,
-  });
-
-  Coordinacion? coordinacion;
-  Difusion? difusion;
-
-  factory Contacts.fromJson(Map<String, dynamic> json) => Contacts(
-        coordinacion: Coordinacion.fromJson(json["coordinacion"]),
-        difusion: Difusion.fromJson(json["difusion"]),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "coordinacion": coordinacion?.toJson(),
-        "difusion": difusion?.toJson(),
-      };
-}
-
-class Coordinacion {
-  Coordinacion({
-    this.descripcion,
-    this.name,
-    this.phone,
-  });
-
-  String? descripcion;
   String? name;
-  int? phone;
 
-  factory Coordinacion.fromJson(Map<String, dynamic> json) => Coordinacion(
-        descripcion: json["descripcion"],
+  factory Career.fromJson(String str) => Career.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
+  factory Career.fromMap(Map<String, dynamic> json) => Career(
+        contact: Contact.fromMap(json["contact"]),
+        home: Home.fromMap(json["home"]),
+        info: Info.fromMap(json["info"]),
         name: json["name"],
-        phone: json["phone"],
       );
 
-  Map<String, dynamic> toJson() => {
-        "descripcion": descripcion,
+  Map<String, dynamic> toMap() => {
+        "contact": contact!.toMap(),
+        "home": home!.toMap(),
+        "info": info!.toMap(),
         "name": name,
-        "phone": phone,
       };
 }
 
-class Difusion {
-  Difusion({
-    this.description,
+class Contact {
+  Contact({
+    this.email,
+    this.image,
     this.name,
     this.phone,
   });
 
-  String? description;
+  String? email;
+  String? image;
   String? name;
-  int? phone;
+  String? phone;
 
-  factory Difusion.fromJson(Map<String, dynamic> json) => Difusion(
-        description: json["description"],
+  factory Contact.fromJson(String str) => Contact.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
+  factory Contact.fromMap(Map<String, dynamic> json) => Contact(
+        email: json["email"],
+        image: json["image"],
         name: json["name"],
         phone: json["phone"],
       );
 
-  Map<String, dynamic> toJson() => {
-        "description": description,
+  Map<String, dynamic> toMap() => {
+        "email": email,
+        "image": image,
         "name": name,
         "phone": phone,
       };
@@ -92,44 +66,50 @@ class Difusion {
 
 class Home {
   Home({
+    this.description,
     this.images,
-    this.videos,
+    this.video,
   });
 
+  String? description;
   List<String>? images;
-  List<String>? videos;
+  String? video;
 
-  factory Home.fromJson(Map<String, dynamic> json) => Home(
-        images: List<String>.from(json["images"].map((x) => x)),
-        videos: List<String>.from(json["videos"].map((x) => x)),
+  factory Home.fromJson(String str) => Home.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
+  factory Home.fromMap(Map<String, dynamic> json) => Home(
+        description: json["description"],
+        images: List<String>.from(json["images"]
+            .map((x) => x ?? 'http://placehold.jp/3d4070/ffffff/150x150.png')),
+        video: json["video"],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
+        "description": description,
         "images": List<dynamic>.from(images!.map((x) => x)),
-        "videos": List<dynamic>.from(videos!.map((x) => x)),
+        "video": video,
       };
 }
 
 class Info {
   Info({
-    this.mision,
-    this.objetivo,
-    this.vision,
+    this.tript,
   });
 
-  String? mision;
-  String? objetivo;
-  String? vision;
+  List<String>? tript;
 
-  factory Info.fromJson(Map<String, dynamic> json) => Info(
-        mision: json["mision"],
-        objetivo: json["objetivo"],
-        vision: json["vision"],
+  factory Info.fromJson(String str) => Info.fromMap(json.decode(str));
+
+  String toJson() => json.encode(toMap());
+
+  factory Info.fromMap(Map<String, dynamic> json) => Info(
+        tript: List<String>.from(json["tript"]
+            .map((x) => x ?? 'http://placehold.jp/3d4070/ffffff/150x150.png')),
       );
 
-  Map<String, dynamic> toJson() => {
-        "mision": mision,
-        "objetivo": objetivo,
-        "vision": vision,
+  Map<String, dynamic> toMap() => {
+        "tript": List<dynamic>.from(tript!.map((x) => x)),
       };
 }

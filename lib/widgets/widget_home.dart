@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-
+import 'package:iosproject/imports/.providers.dart';
+import 'package:provider/provider.dart';
 import 'package:iosproject/const/styles.dart';
-
 import 'package:iosproject/shared/full_image_view.dart';
-
 import 'package:url_launcher/url_launcher.dart';
 
 import '../imports/.widgets.dart';
 
 class WidgetHome extends StatelessWidget {
-  final String? image;
-  const WidgetHome({Key? key, this.image}) : super(key: key);
+  WidgetHome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final orientation = MediaQuery.of(context).orientation;
+    DbServiceHome homeService = Provider.of<DbServiceHome>(context);
     return SizedBox(
       height: orientation.toString() == 'Orientation.portrait'
           ? size.height * 90
@@ -42,20 +41,16 @@ class WidgetHome extends StatelessWidget {
                 ],
               ),
             ),
-
             SizedBox(
               height: 15,
             ),
-
             Text(
-              'Animate a ser parte del equipo albatos',
+              'Animate a ser parte del equipo albatros',
               style: kTextSyleCarrerTitle,
             ),
-
             SizedBox(
               height: 15,
             ),
-
             OutlinedBtn('¿Cómo tramito mi ficha de nuevo ingreso?',
                 function: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -63,7 +58,6 @@ class WidgetHome extends StatelessWidget {
                     'https://www.ensenada.tecnm.mx/wp-content/uploads/2022/03/Proceso-de-admision-2022-2.jpeg');
               }));
             }),
-
             OutlinedBtn('¿Cómo elabora mi examen de nuevo ingreso?',
                 function: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -71,7 +65,6 @@ class WidgetHome extends StatelessWidget {
                     "https://www.ensenada.tecnm.mx/wp-content/uploads/2022/05/Proceso-examen-mayo2022-02.png");
               }));
             }),
-
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 50),
               child: Row(
@@ -91,16 +84,13 @@ class WidgetHome extends StatelessWidget {
                 ],
               ),
             ),
-
             SizedBox(
               height: 20,
             ),
             CardSwiper(),
-            // CardSwiper(),
             SizedBox(
               height: 10,
             ),
-
             YoutubePlayerScreen(
               yotube_url: 'https://www.youtube.com/watch?v=O7JHliJdNMw',
             ),

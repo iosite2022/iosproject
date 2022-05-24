@@ -1,31 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ionicons/ionicons.dart';
-
+import 'package:iosproject/providers/db_service_career.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../const/styles.dart';
 
 class ContacCordinador extends StatelessWidget {
-  final String CoordName;
-  final String CoordNumber;
-  final String CoordEmail;
-  final String CareerName;
-  final IconData career;
-  final Image? image;
+  String CoordName = 'CoordName';
+  String CoordNumber = 'CoordNumber';
+  String CoordEmail = 'CoordEmail';
+  String CareerName = 'CareerName';
+  IconData iCareer = FontAwesomeIcons.addressCard;
+  Enum? career;
+  Image? image;
 
-  const ContacCordinador(
+  ContacCordinador(
       {Key? key,
-      required this.CoordName,
-      required this.CoordNumber,
-      required this.CoordEmail,
-      required this.CareerName,
-      required this.career,
-      this.image})
+      // required this.CoordName,
+      // required this.CoordNumber,
+      // required this.CoordEmail,
+      // required this.CareerName,
+      // required this.career,
+      // this.image
+      this.career})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    DbServiceCareer careerDbs = Provider.of<DbServiceCareer>(context);
     return SizedBox(
       child: SingleChildScrollView(
         child: Column(
@@ -43,16 +47,18 @@ class ContacCordinador extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(100),
                     child: Center(
-                        child: image != null
-                            ? const Image(
-                                image: AssetImage('assets/no-image.png'),
-                                fit: BoxFit.cover,
-                              )
-                            : FadeInImage(
-                                placeholder:
-                                    const AssetImage('assets/cargando.gif'),
-                                image: NetworkImage(
-                                    'https://i.ibb.co/QHSfmgb/coordsistemas.jpg'))),
+                      child: image != null
+                          ? const Image(
+                              image: AssetImage('assets/no-image.png'),
+                              fit: BoxFit.cover,
+                            )
+                          : FadeInImage(
+                              placeholder:
+                                  const AssetImage('assets/cargando.gif'),
+                              image: NetworkImage(
+                                  careerDbs.career?.contact?.image ?? ''),
+                            ),
+                    ),
                   ),
                 ),
               ),
@@ -64,7 +70,7 @@ class ContacCordinador extends StatelessWidget {
                 decoration: InputDecorations.authInputDecoration(
                   icons: Icon(FontAwesomeIcons.chalkboardUser),
                   labelText: 'Cordinador',
-                  hintText: CoordName,
+                  hintText: careerDbs.career?.contact?.name ?? "",
                 ),
               ),
             ),
@@ -75,7 +81,7 @@ class ContacCordinador extends StatelessWidget {
                 decoration: InputDecorations.authInputDecoration(
                   icons: Icon(Ionicons.school_outline),
                   labelText: 'Carrera',
-                  hintText: CareerName,
+                  hintText: careerDbs.career?.name ?? '',
                 ),
               ),
             ),
@@ -91,7 +97,7 @@ class ContacCordinador extends StatelessWidget {
                   decoration: InputDecorations.authInputDecoration(
                     icons: Icon(FontAwesomeIcons.envelopeCircleCheck),
                     labelText: 'Correo',
-                    hintText: CoordEmail,
+                    hintText: careerDbs.career?.contact?.email ?? '',
                   ),
                 ),
               ),
@@ -108,7 +114,7 @@ class ContacCordinador extends StatelessWidget {
                         colorIcon: Colors.greenAccent,
                         icons: Icon(FontAwesomeIcons.whatsapp),
                         labelText: 'WhatsApp',
-                        hintText: CoordNumber,
+                        hintText: careerDbs.career?.contact?.phone ?? '',
                       )),
                 ))
           ],

@@ -1,1 +1,1 @@
-export 'package:iosproject/screens/home.dart';
+export 'package:iosproject/screens/ite.dart';
