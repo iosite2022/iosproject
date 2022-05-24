@@ -30,21 +30,29 @@ class ContacCordinador extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            Center(
-              child: Container(
-                margin: const EdgeInsets.only(top: 20),
-                width: 200,
-                height: 200,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(100),
-                  child: Center(
-                    child: image != null
-                        ? Image.asset('assets/no-image.png')
-                        : Image.network(
-                            'https://i.ibb.co/kc3sdnj/coordsistemas.png'),
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Center(
+                child: Container(
+                  //  margin: EdgeInsets.all(100.0),
+                  width: 200,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: Center(
+                        child: image != null
+                            ? const Image(
+                                image: AssetImage('assets/no-image.png'),
+                                fit: BoxFit.cover,
+                              )
+                            : FadeInImage(
+                                placeholder:
+                                    const AssetImage('assets/cargando.gif'),
+                                image: NetworkImage(
+                                    'https://i.ibb.co/QHSfmgb/coordsistemas.jpg'))),
                   ),
                 ),
               ),
@@ -115,7 +123,7 @@ class InputDecorations {
       {required String labelText,
       required String hintText,
       Color? colorIcon,
-      required Widget icons}) {
+      Widget? icons}) {
     return InputDecoration(
         icon: icons,
         iconColor: colorIcon,

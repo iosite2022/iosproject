@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:iosproject/const/styles.dart';
-import 'package:iosproject/screens/examen_nuevo_ingreso.dart';
-import 'package:iosproject/screens/tramitar_ficha.dart';
+
+import 'package:iosproject/shared/full_image_view.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -15,10 +14,6 @@ class WidgetHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Uri _urlGoogleMaps = Uri.parse(
-        'https://www.google.com/maps/place/TecNM+-+Instituto+Tecnológico+de+Ensenada/@31.8059587,-116.5901977,17z/data=!3m1!4b1!4m5!3m4!1s0x80d88e39f768d7d3:0x536c67072ac8e5e7!8m2!3d31.8059587!4d-116.5901977');
-
-    final Uri _urlITE = Uri.parse('https://www.ensenada.tecnm.mx');
     final size = MediaQuery.of(context).size;
     final orientation = MediaQuery.of(context).orientation;
     return SizedBox(
@@ -61,46 +56,39 @@ class WidgetHome extends StatelessWidget {
               height: 15,
             ),
 
-            OutlinedButton(
-              onPressed: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => TramitarFicha())),
-              style: ButtonStyle(
-                foregroundColor:
-                    MaterialStateProperty.all<Color>(kSecundaryColor),
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0))),
-              ),
-              child: Text(
-                '¿Cómo tramito mi ficha de nuevo ingreso?',
-              ),
-            ),
-            OutlinedButton(
-              onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ExamenNuevoIngreso())),
-              style: ButtonStyle(
-                foregroundColor:
-                    MaterialStateProperty.all<Color>(kSecundaryColor),
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0))),
-              ),
-              child: Text(
-                '¿Cómo elabora mi examen de nuevo ingreso?',
-              ),
-            ),
+            OutlinedBtn('¿Cómo tramito mi ficha de nuevo ingreso?',
+                function: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return FullImageView(
+                    'https://www.ensenada.tecnm.mx/wp-content/uploads/2022/03/Proceso-de-admision-2022-2.jpeg');
+              }));
+            }),
 
-            OutlinedButton(
-              onPressed: () async => await launch(
-                  'http://escolares.ensenada.tecnm.mx/intertec/indexficha.html'),
-              style: ButtonStyle(
-                foregroundColor:
-                    MaterialStateProperty.all<Color>(kSecundaryColor),
-                shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30.0))),
-              ),
-              child: Text(
-                'SIE Aspirantes',
+            OutlinedBtn('¿Cómo elabora mi examen de nuevo ingreso?',
+                function: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return FullImageView(
+                    "https://www.ensenada.tecnm.mx/wp-content/uploads/2022/05/Proceso-examen-mayo2022-02.png");
+              }));
+            }),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 50),
+              child: Row(
+                children: [
+                  OutlinedBtn('Calendario Escolar', function: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return FullImageView(
+                          'https://www.ensenada.tecnm.mx/wp-content/uploads/2022/03/calendario-actualizado2022-1.jpeg');
+                    }));
+                  }),
+                  OutlinedBtn(
+                    'SIE Aspirantes',
+                    function: () async => await launch(
+                        'http://escolares.ensenada.tecnm.mx/intertec/indexficha.html'),
+                  ),
+                ],
               ),
             ),
 
@@ -119,6 +107,20 @@ class WidgetHome extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Widget OutlinedBtn(String text, {Function()? function}) => OutlinedButton(
+        child: Text(text),
+        onPressed: function,
+        style: ButtonSyle(),
+      );
+
+  ButtonStyle ButtonSyle() {
+    return ButtonStyle(
+      foregroundColor: MaterialStateProperty.all<Color>(kSecundaryColor),
+      shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0))),
     );
   }
 }
