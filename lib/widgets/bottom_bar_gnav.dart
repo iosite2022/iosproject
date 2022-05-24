@@ -19,11 +19,12 @@ class BottomBarGnav extends StatelessWidget {
   Widget build(BuildContext context) {
     final sel = Provider.of<Select>(context);
     return CurvedNavigationBar(
+      // animationDuration: const Duration(milliseconds: 8000),
       backgroundColor: kPrimaryColor,
       color: kSecundaryColor,
       items: [
         Icon(FontAwesomeIcons.house, color: kIconColor),
-        Icon(FontAwesomeIcons.peopleGroup, color: kIconColor),
+        Icon(FontAwesomeIcons.solidFileLines, color: kIconColor),
         Icon(FontAwesomeIcons.addressBook, color: kIconColor),
       ],
       onTap: (index) {

@@ -24,5 +24,17 @@ const kTextStyleMisionVisionObjetivo = TextStyle(
 );
 
 const kTextSyleCarrerTitle = TextStyle(
-  fontSize: 25,
+  fontSize: 18,
+  fontWeight: FontWeight.bold,
+);
+
+const kTextStyle_ContactCord_Contact_School = TextStyle(
+  fontSize: 20,
+  color: Colors.black,
+  fontWeight: FontWeight.bold,
+);
+
+const kTextStyle_ContactCord_Contact_School2 = TextStyle(
+  fontSize: 15,
+  color: Colors.black,
 );

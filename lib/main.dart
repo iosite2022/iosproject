@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'ITE',
       theme: themeData(),
-      home: Home(),
+      home: Container(),
 
       //home: Prueba(),
     );

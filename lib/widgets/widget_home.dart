@@ -1,10 +1,16 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+
+import 'package:iosproject/const/styles.dart';
+
+import 'package:iosproject/shared/full_image_view.dart';
+
+import 'package:url_launcher/url_launcher.dart';
 
 import '../imports/.widgets.dart';
 
 class WidgetHome extends StatelessWidget {
-  const WidgetHome({Key? key}) : super(key: key);
+  final String? image;
+  const WidgetHome({Key? key, this.image}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +25,10 @@ class WidgetHome extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: 10,
+              height: 30,
             ),
             Padding(
-              padding: EdgeInsets.only(right: 60),
+              padding: EdgeInsets.only(right: 10),
               child: Row(
                 children: [
                   Expanded(
@@ -37,30 +43,57 @@ class WidgetHome extends StatelessWidget {
               ),
             ),
 
-            visionYobjetivo(
-              size: size,
-              VisionYObjetivo: 'Vision ',
-              textVisionYObjetivo: 'Esto es una vision',
-            ),
-            divisionDiver(),
-            Mision(
-              size: size,
-              Misionn: 'Mision',
-              textMision: 'orffrfo',
-              imageMison:
-                  'https://josefacchin.com/wp-content/uploads/2020/02/como-quitar-el-fondo-de-una-imagen.png',
-            ),
-            divisionDiver(),
-            visionYobjetivo(
-              size: size,
-              VisionYObjetivo: 'Objetivo',
-              textVisionYObjetivo: 'efiokfpoidpoip',
-              imageVisionYObjetivo:
-                  'https://josefacchin.com/wp-content/uploads/2020/02/como-quitar-el-fondo-de-una-imagen.png',
-            ),
-            divisionDiver(),
             SizedBox(
-              height: 10,
+              height: 15,
+            ),
+
+            Text(
+              'Animate a ser parte del equipo albatos',
+              style: kTextSyleCarrerTitle,
+            ),
+
+            SizedBox(
+              height: 15,
+            ),
+
+            OutlinedBtn('¿Cómo tramito mi ficha de nuevo ingreso?',
+                function: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return FullImageView(
+                    'https://www.ensenada.tecnm.mx/wp-content/uploads/2022/03/Proceso-de-admision-2022-2.jpeg');
+              }));
+            }),
+
+            OutlinedBtn('¿Cómo elabora mi examen de nuevo ingreso?',
+                function: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return FullImageView(
+                    "https://www.ensenada.tecnm.mx/wp-content/uploads/2022/05/Proceso-examen-mayo2022-02.png");
+              }));
+            }),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 50),
+              child: Row(
+                children: [
+                  OutlinedBtn('Calendario Escolar', function: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return FullImageView(
+                          'https://www.ensenada.tecnm.mx/wp-content/uploads/2022/03/calendario-actualizado2022-1.jpeg');
+                    }));
+                  }),
+                  OutlinedBtn(
+                    'SIE Aspirantes',
+                    function: () async => await launch(
+                        'http://escolares.ensenada.tecnm.mx/intertec/indexficha.html'),
+                  ),
+                ],
+              ),
+            ),
+
+            SizedBox(
+              height: 20,
             ),
             CardSwiper(),
             // CardSwiper(),
@@ -68,26 +101,26 @@ class WidgetHome extends StatelessWidget {
               height: 10,
             ),
 
-            // YoutubePlayerScreen(
-            //   yotube_url: 'https://www.youtube.com/watch?v=POVkvhDEcv4',
-            // ),
+            YoutubePlayerScreen(
+              yotube_url: 'https://www.youtube.com/watch?v=O7JHliJdNMw',
+            ),
           ],
         ),
       ),
     );
   }
-}
 
-class divisionDiver extends StatelessWidget {
-  const divisionDiver({
-    Key? key,
-  }) : super(key: key);
+  Widget OutlinedBtn(String text, {Function()? function}) => OutlinedButton(
+        child: Text(text),
+        onPressed: function,
+        style: ButtonSyle(),
+      );
 
-  @override
-  Widget build(BuildContext context) {
-    return Divider(
-      thickness: 3,
-      color: Colors.black,
+  ButtonStyle ButtonSyle() {
+    return ButtonStyle(
+      foregroundColor: MaterialStateProperty.all<Color>(kSecundaryColor),
+      shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0))),
     );
   }
 }

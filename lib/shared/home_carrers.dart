@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:iosproject/imports/.providers.dart';
 import '../imports/.widgets.dart';
 
 class HomeCarrers extends StatelessWidget {
+  final String CareerName;
+  final String CarrerDescription;
   final Enum? eCareer;
 
   HomeCarrers({
     Key? key,
-    // this.carrersName,
     this.eCareer,
+    required this.CareerName,
+    required this.CarrerDescription,
   }) : super(key: key);
 
   @override
@@ -22,58 +26,32 @@ class HomeCarrers extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+              child: TextField(
+                textAlign: TextAlign.center,
+                readOnly: true,
+                decoration: InputDecorations.authInputDecoration(
+                  hintText: CareerName,
+                  labelText: '',
+                ),
+              ),
+            ),
+            Text(CarrerDescription),
+            SizedBox(
+              height: 20,
+            ),
             CardSwiper(),
-            visionYobjetivo(
-              size: size,
-              VisionYObjetivo: 'Vision ',
-              textVisionYObjetivo: info.career?.info?.vision ?? "null",
-              imageVisionYObjetivo: 'https://i.ibb.co/8YHjgsL/casa2.jpg',
-            ),
-            divisionDiver(),
-            Mision(
-              size: size,
-              Misionn: 'Mision',
-              textMision: info.career?.info?.mision ?? "null",
-              imageMison: 'https://i.ibb.co/8YHjgsL/casa2.jpg',
-            ),
-            divisionDiver(),
-            visionYobjetivo(
-              size: size,
-              VisionYObjetivo: 'Objetivo',
-              textVisionYObjetivo: info.career?.info?.objetivo ?? "null",
-              imageVisionYObjetivo:
-                  'https://josefacchin.com/wp-content/uploads/2020/02/como-quitar-el-fondo-de-una-imagen.png',
-            ),
-            divisionDiver(),
             SizedBox(
               height: 10,
             ),
-
-            // CardSwiper(),
-            SizedBox(
-              height: 10,
+            YoutubePlayerScreen(
+              yotube_url:
+                  'https://www.youtube.com/watch?v=_w_Jlp9fCAI&list=TLPQMjMwNTIwMjLeWMSodkOaIw&index=2',
             ),
-
-            // YoutubePlayerScreen(
-            //   yotube_url: 'https://www.youtube.com/watch?v=POVkvhDEcv4',
-            // ),
           ],
         ),
       ),
-    );
-  }
-}
-
-class divisionDiver extends StatelessWidget {
-  const divisionDiver({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Divider(
-      thickness: 3,
-      color: Colors.black,
     );
   }
 }
