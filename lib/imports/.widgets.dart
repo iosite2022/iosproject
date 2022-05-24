@@ -8,3 +8,4 @@ export '../widgets/widget_home.dart';
 export 'package:iosproject/shared/cadr_swiper.dart';
 export 'package:iosproject/video/youtube_player_screen.dart';
 export 'package:iosproject/shared/full_image_view.dart';
+export 'package:iosproject/shared/triptico_princpal.dart';

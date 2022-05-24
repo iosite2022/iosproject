@@ -37,7 +37,7 @@ class _SpeedDialButtonState extends State<SpeedDialButton> {
         'https://www.ensenada.tecnm.mx/convocatoria-nuevo-ingreso-agosto-diciembre-2022/');
 
     openwhatsapp() async {
-      var whatsapp = "+526462563511";
+      var whatsapp = "+526461138424";
       var whatsappURl_android = "whatsapp://send?phone=" + whatsapp + "&text=";
       var whatappURL_ios = "https://wa.me/$whatsapp?text=${Uri.parse("")}";
       if (Platform.isIOS) {
@@ -86,13 +86,6 @@ class _SpeedDialButtonState extends State<SpeedDialButton> {
             children: [
               SpeedDialChild(
                 //   backgroundColor: kSecundaryColor,
-                child: Icon(FontAwesomeIcons.bullhorn),
-                foregroundColor: Colors.grey,
-                label: 'Convocatoria-Pagos-Cursos',
-                onTap: () async => await launchUrl(_urlConvocatoria),
-              ),
-              SpeedDialChild(
-                //   backgroundColor: kSecundaryColor,
                 child: Icon(FontAwesomeIcons.locationDot),
                 foregroundColor: Colors.red,
                 label: '¿Dónde Estamos?',
@@ -106,7 +99,7 @@ class _SpeedDialButtonState extends State<SpeedDialButton> {
               ),
               SpeedDialChild(
                   onTap: () async => await launch(
-                      'mailto:al18760082@ite.edu.mx?subject= asunto &body='),
+                      'mailto:cyd_ensenada@tecnm.mx?subject= asunto &body='),
                   child: Icon(FontAwesomeIcons.envelopeCircleCheck),
                   label: 'Correo',
                   foregroundColor: Colors.black),

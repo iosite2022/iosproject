@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:iosproject/models/career.dart';
+import 'package:iosproject/screens/ite.dart';
 import 'package:provider/provider.dart';
 import 'package:iosproject/imports/.providers.dart';
 import 'package:iosproject/imports/.const.dart';
@@ -19,8 +21,11 @@ Widget AppProviders() => MultiProvider(
           create: (_) => Select(),
         ),
         ChangeNotifierProvider(
-          create: (_) => DbService(),
-        )
+          create: (_) => DbServiceCareer(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => DbServiceHome(),
+        ),
       ],
       child: MyApp(),
     );
@@ -35,7 +40,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'ITE',
       theme: themeData(),
-      home: Container(),
+      home: Ite(),
 
       //home: Prueba(),
     );
