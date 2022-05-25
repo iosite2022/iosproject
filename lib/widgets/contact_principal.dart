@@ -29,7 +29,6 @@ class ContacPrincipal extends StatelessWidget {
   Widget build(BuildContext context) {
     DbServiceHome homeSvc = Provider.of<DbServiceHome>(context);
     Uri url_email = Uri.parse(homeSvc.home?.contact?.email ?? "");
-
     print('Esto es el email');
     print(url_email);
     return SizedBox(
