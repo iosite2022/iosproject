@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:iosproject/imports/.providers.dart';
+import '../imports/.const.dart';
 import '../imports/.widgets.dart';
 
 class HomeCarrers extends StatelessWidget {
@@ -32,13 +33,20 @@ class HomeCarrers extends StatelessWidget {
               child: TextField(
                 textAlign: TextAlign.center,
                 readOnly: true,
-                decoration: InputDecorations.authInputDecoration(
+                decoration: InputDecorationsCarrers.authInputDecoration(
                   hintText: careerSvc.career?.name ?? '',
                   labelText: '',
                 ),
               ),
             ),
-            Text(careerSvc.career?.home?.description ?? ''),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                careerSvc.career?.home?.description ?? '',
+                style: TextStyle(fontSize: 15),
+                textAlign: TextAlign.justify,
+              ),
+            ),
             SizedBox(
               height: 20,
             ),
@@ -56,5 +64,34 @@ class HomeCarrers extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class InputDecorationsCarrers {
+  static InputDecoration authInputDecoration(
+      {required String labelText,
+      required String hintText,
+      Color? colorIcon,
+      Widget? icons}) {
+    return InputDecoration(
+        icon: icons,
+        iconColor: colorIcon,
+        enabledBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.black26,
+          ),
+        ),
+        focusedBorder: const UnderlineInputBorder(
+          borderSide: BorderSide(
+            color: Colors.black26,
+            width: 2,
+          ),
+        ),
+        hintText: hintText,
+        labelText: labelText,
+        labelStyle: kTextStyle_ContactCord_Contact_School,
+        hintStyle: TextStyle(
+            fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+        floatingLabelBehavior: FloatingLabelBehavior.always);
   }
 }

@@ -10,10 +10,15 @@ class FullImageView extends StatelessWidget {
     return Container(
       height: double.infinity,
       width: double.infinity,
-      child: PhotoView(
-          minScale: PhotoViewComputedScale.contained,
-          maxScale: PhotoViewComputedScale.covered * 3,
-          imageProvider: NetworkImage("$urlImage")),
+      child: urlImage == null || urlImage == ""
+          ? const Image(
+              image: AssetImage('assets/no-image.png'),
+              fit: BoxFit.cover,
+            )
+          : PhotoView(
+              minScale: PhotoViewComputedScale.contained,
+              maxScale: PhotoViewComputedScale.covered * 3,
+              imageProvider: NetworkImage("$urlImage")),
     );
   }
 }

@@ -5,6 +5,7 @@ import 'package:iosproject/providers/db_service_home.dart';
 import 'package:iosproject/widgets/input_decoration.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:http/http.dart' as http;
 
 class ContacPrincipal extends StatelessWidget {
   String ContacWorkArea = 'ContacWorkArea';
@@ -27,6 +28,9 @@ class ContacPrincipal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     DbServiceHome homeSvc = Provider.of<DbServiceHome>(context);
+    Uri url_email = Uri.parse(homeSvc.home?.contact?.email ?? "");
+    print('Esto es el email');
+    print(url_email);
     return SizedBox(
       child: SingleChildScrollView(
         child: Column(
@@ -67,7 +71,7 @@ class ContacPrincipal extends StatelessWidget {
                 readOnly: true,
                 decoration: InputDecorations.authInputDecoration(
                   icons: Icon(FontAwesomeIcons.chalkboardUser),
-                  labelText: 'Jefa de Departamento',
+                  labelText: 'Encargada de Departamento',
                   hintText: homeSvc.home?.contact?.name ?? "",
                 ),
               ),
@@ -84,8 +88,7 @@ class ContacPrincipal extends StatelessWidget {
               ),
             ),
             GestureDetector(
-              onDoubleTap: () async => await launch(
-                  'mailto:coord_sistemas@ite.edu.mx?subject= asunto &body='),
+              //  onDoubleTap: () async => await canLaunchUrl(url_email),
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
@@ -101,20 +104,25 @@ class ContacPrincipal extends StatelessWidget {
               ),
             ),
             GestureDetector(
-                onDoubleTap: () async => await launch("tel://6461321665"),
+                // onDoubleTap: () async {
+                //   try {
+                //     await launch(homeSvc.home?.contact?.phone ?? "");
+                //   } catch (e) {
+                //     print(homeSvc.home?.contact?.phone ?? "");
+                //   }
+                // },
                 child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                  child: TextField(
-                      readOnly: true,
-                      enableInteractiveSelection: false,
-                      decoration: InputDecorations.authInputDecoration(
-                        colorIcon: Colors.greenAccent,
-                        icons: Icon(FontAwesomeIcons.whatsapp),
-                        labelText: 'WhatsApp',
-                        hintText: homeSvc.home?.contact?.phone ?? "",
-                      )),
-                ))
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              child: TextField(
+                  readOnly: true,
+                  enableInteractiveSelection: false,
+                  decoration: InputDecorations.authInputDecoration(
+                    colorIcon: Colors.greenAccent,
+                    icons: Icon(FontAwesomeIcons.whatsapp),
+                    labelText: 'WhatsApp',
+                    hintText: homeSvc.home?.contact?.phone ?? "",
+                  )),
+            ))
           ],
         ),
       ),

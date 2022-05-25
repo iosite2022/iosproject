@@ -19,7 +19,7 @@ class CardSwiper extends StatelessWidget {
           )
         : SizedBox(
             height: orientation.toString() == 'Orientation.portrait'
-                ? size.height * 0.4
+                ? size.height * 0.3
                 : size.height * 0.7,
             width: orientation.toString() == 'Orientation.landscape'
                 ? size.width * 0.6
@@ -29,8 +29,11 @@ class CardSwiper extends StatelessWidget {
                     itemBuilder: (BuildContext context, int index) {
                       return ClipRRect(
                         borderRadius: BorderRadius.circular(25),
-                        child: Image.network(
-                          homeSvc.home?.images?[index] ?? '',
+                        child: FadeInImage(
+                          placeholder: const AssetImage('assets/no-image.png'),
+                          image: NetworkImage(
+                            homeSvc.home?.images?[index] ?? '',
+                          ),
                           fit: BoxFit.fill,
                         ),
                       );
@@ -44,8 +47,11 @@ class CardSwiper extends StatelessWidget {
                     itemBuilder: (BuildContext context, int index) {
                       return ClipRRect(
                         borderRadius: BorderRadius.circular(25),
-                        child: Image.network(
-                          images?[index] ?? '',
+                        child: FadeInImage(
+                          placeholder: const AssetImage('assets/no-image.png'),
+                          image: NetworkImage(
+                            images?[index] ?? '',
+                          ),
                           fit: BoxFit.fill,
                         ),
                       );

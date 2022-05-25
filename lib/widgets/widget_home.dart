@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:iosproject/imports/.providers.dart';
-import 'package:provider/provider.dart';
+// import 'package:iosproject/imports/.providers.dart';
+// import 'package:provider/provider.dart';
 import 'package:iosproject/const/styles.dart';
-import 'package:iosproject/shared/full_image_view.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 import '../imports/.widgets.dart';
@@ -14,7 +14,7 @@ class WidgetHome extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final orientation = MediaQuery.of(context).orientation;
-    DbServiceHome homeService = Provider.of<DbServiceHome>(context);
+    // DbServiceHome homeService = Provider.of<DbServiceHome>(context);
     return SizedBox(
       height: orientation.toString() == 'Orientation.portrait'
           ? size.height * 90
@@ -58,7 +58,7 @@ class WidgetHome extends StatelessWidget {
                     'https://www.ensenada.tecnm.mx/wp-content/uploads/2022/03/Proceso-de-admision-2022-2.jpeg');
               }));
             }),
-            OutlinedBtn('¿Cómo elabora mi examen de nuevo ingreso?',
+            OutlinedBtn('¿Cómo elaborar mi examen de nuevo ingreso?',
                 function: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return FullImageView(

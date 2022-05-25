@@ -86,8 +86,8 @@ class ContacCordinador extends StatelessWidget {
               ),
             ),
             GestureDetector(
-              onDoubleTap: () async => await launch(
-                  'mailto:coord_sistemas@ite.edu.mx?subject= asunto &body='),
+              // onDoubleTap: () async =>
+              //     await launch(careerDbs.career?.contact?.email ?? ""),
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
@@ -103,11 +103,14 @@ class ContacCordinador extends StatelessWidget {
               ),
             ),
             GestureDetector(
-                onDoubleTap: () async => await launch("tel://6461321665"),
+                // onDoubleTap: () async =>
+                //     await launch(careerDbs.career?.contact?.phone ?? ""),
                 child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                  child: TextField(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              child: careerDbs.career?.contact?.phone == null ||
+                      careerDbs.career?.contact?.phone == ""
+                  ? Container()
+                  : TextField(
                       readOnly: true,
                       enableInteractiveSelection: false,
                       decoration: InputDecorations.authInputDecoration(
@@ -116,7 +119,7 @@ class ContacCordinador extends StatelessWidget {
                         labelText: 'WhatsApp',
                         hintText: careerDbs.career?.contact?.phone ?? '',
                       )),
-                ))
+            ))
           ],
         ),
       ),
