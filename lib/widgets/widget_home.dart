@@ -45,7 +45,7 @@ class WidgetHome extends StatelessWidget {
               height: 15,
             ),
             Text(
-              'Animate a ser parte del equipo albatros',
+              '¡Anímate, sé un albatros!',
               style: kTextSyleCarrerTitle,
             ),
             SizedBox(

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:iosproject/const/ite_paths.dart';
+
 import 'package:provider/provider.dart';
 import 'package:iosproject/imports/.providers.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../imports/.const.dart';
-import '../imports/.const.dart';
+
 import 'package:flutter/gestures.dart';
 import '../imports/.widgets.dart';
 
