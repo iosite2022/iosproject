@@ -16,6 +16,7 @@ class DbServiceCareer extends ChangeNotifier {
     if (eCareerL != null && eCareer != eCareerL) {
       final url =
           Uri.https(DbPaths.authority, DbPaths.getUnencodedPath(eCareerL));
+
       final response = await http.get(url);
       // print(response.body);
       Career careerL = Career.fromJson(response.body);

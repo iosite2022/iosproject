@@ -42,37 +42,46 @@ class _DrawerPrincipalState extends State<DrawerPrincipal> {
               ),
             ),
             const Divider(color: Colors.black, thickness: 2),
-            const Text('Eliga una carrera para ver su información'),
+            const Text('Conoce nuestra oferta educativa'),
             const Divider(color: Colors.black, thickness: 2),
             ButtonCareer('Licenciatura en Administración', function: () {
               sel.setCareer(Careers.Administracion);
+              sel.setTab(Tabs.Home);
               Navigator.of(context).pop();
             }),
             ButtonCareer('Ingeniería Electromecánica', function: () {
               sel.setCareer(Careers.Electromecanica);
+              sel.setTab(Tabs.Home);
+
               Navigator.of(context).pop();
             }),
             ButtonCareer('Ingeniería Electrónica', function: () {
               sel.setCareer(Careers.Electronica);
+              sel.setTab(Tabs.Home);
               Navigator.of(context).pop();
             }),
             ButtonCareer('Ingeniería en Gestión Empresarial', function: () {
               sel.setCareer(Careers.Gestion);
+              sel.setTab(Tabs.Home);
               Navigator.of(context).pop();
             }),
             ButtonCareer('Ingeniería Industrial', function: () {
               sel.setCareer(Careers.Industrial);
+              sel.setTab(Tabs.Home);
               Navigator.of(context).pop();
             }),
             ButtonCareer('Ingeniería Mecatrónica', function: () {
               sel.setCareer(Careers.Mecatronica);
+              sel.setTab(Tabs.Home);
               Navigator.of(context).pop();
             }),
             ButtonCareer('Ingeniería en Sistemas Computacionales',
                 function: () {
               sel.setCareer(Careers.Sistemas);
+              sel.setTab(Tabs.Home);
               Navigator.of(context).pop();
             }),
+            ButtonCareer('Nueva Carrera', function: () {}),
           ],
         ),
       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:iosproject/const/tabs.dart';
 import 'package:provider/provider.dart';
 import 'package:iosproject/imports/.providers.dart';

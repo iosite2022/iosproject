@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:iosproject/const/ite_paths.dart';
 import 'package:provider/provider.dart';
 import 'package:iosproject/imports/.providers.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../imports/.const.dart';
+import '../imports/.const.dart';
+import 'package:flutter/gestures.dart';
 import '../imports/.widgets.dart';
 
 class HomeCarrers extends StatelessWidget {
@@ -39,14 +43,45 @@ class HomeCarrers extends StatelessWidget {
                 ),
               ),
             ),
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(horizontal: 20),
+            //   child: Text(
+            //  careerSvc.career?.home?.description ?? '',
+            //  style: TextStyle(fontSize: 15),
+            //  textAlign: TextAlign.justify,
+            //   ),
+            // ),
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                careerSvc.career?.home?.description ?? '',
-                style: TextStyle(fontSize: 15),
+              child: RichText(
                 textAlign: TextAlign.justify,
+                text: TextSpan(children: <InlineSpan>[
+                  TextSpan(
+                    text: careerSvc.career?.home?.description ?? '',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.black,
+                    ),
+                  ),
+                  TextSpan(
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 0, 102, 255),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
+                    text: 'Saber más...',
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () async => await launchUrl(
+                            Uri.https(
+                              ItePaths.authorityITE,
+                              ItePaths.getUnencodeCarrers(career),
+                            ),
+                          ),
+                  ),
+                ]),
               ),
             ),
+
             SizedBox(
               height: 20,
             ),
