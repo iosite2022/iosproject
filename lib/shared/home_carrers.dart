@@ -24,8 +24,7 @@ class HomeCarrers extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     DbServiceCareer careerSvc = Provider.of<DbServiceCareer>(context);
-    careerSvc.fetchCareerInfo(career);
-    // print(info.career?.info?.vision ?? '');
+    //careerSvc.fetchCareerInfo(career);
     return SizedBox(
       width: size.width,
       child: SingleChildScrollView(
@@ -90,10 +89,11 @@ class HomeCarrers extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            YoutubePlayerScreen(
-              yotube_url:
-                  'https://www.youtube.com/watch?v=_w_Jlp9fCAI&list=TLPQMjMwNTIwMjLeWMSodkOaIw&index=2',
-            ),
+            careerSvc.career?.home?.video == null
+                ? Container()
+                : YoutubePlayerScreen(
+                    yotube_url: careerSvc.career?.home?.video,
+                  ),
           ],
         ),
       ),

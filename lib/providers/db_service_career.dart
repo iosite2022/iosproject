@@ -12,6 +12,12 @@ class DbServiceCareer extends ChangeNotifier {
     print('Loading DbServiceCareer');
   }
 
+  void cleanCache() {
+    career = null;
+    eCareer = null;
+    notifyListeners();
+  }
+
   Future fetchCareerInfo(Enum? eCareerL) async {
     if (eCareerL != null && eCareer != eCareerL) {
       final url =

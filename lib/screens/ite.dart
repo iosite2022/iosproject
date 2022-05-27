@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:iosproject/const/tabs.dart';
 import 'package:provider/provider.dart';
 import 'package:iosproject/imports/.providers.dart';
@@ -26,13 +25,12 @@ class Ite extends StatelessWidget {
   }
 }
 
-Widget HomeTitle() => Text("TECNM ENSENADA");
+Widget HomeTitle() => Text("ITE del TECNM");
 
 class BodySelector extends StatelessWidget {
   final Enum? career;
   final Enum? tab;
   BodySelector({Key? key, this.career, this.tab}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return career == null

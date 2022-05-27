@@ -1,26 +1,23 @@
 import 'dart:convert';
 
 class HomeModel {
-  HomeModel({
-    this.contact,
-    this.images,
-    this.tript,
-  });
+  HomeModel({this.contact, this.images, this.tript, required this.video});
 
   Contact? contact;
   List<String>? images;
   List<String>? tript;
+  String video;
 
   factory HomeModel.fromJson(String str) => HomeModel.fromMap(json.decode(str));
 
   String toJson() => json.encode(toMap());
 
   factory HomeModel.fromMap(Map<String, dynamic> json) => HomeModel(
-        contact: Contact.fromMap(json["contact"]),
-        images: List<String>.from(json["images"]
-            .map((x) => x ?? 'http://placehold.jp/3d4070/ffffff/150x150.png')),
-        tript: List<String>.from(json["tript"].map((x) => x)),
-      );
+      contact: Contact.fromMap(json["contact"]),
+      images: List<String>.from(json["images"]
+          .map((x) => x ?? 'http://placehold.jp/3d4070/ffffff/150x150.png')),
+      tript: List<String>.from(json["tript"].map((x) => x)),
+      video: json["video"]);
 
   Map<String, dynamic> toMap() => {
         "contact": contact!.toMap(),
