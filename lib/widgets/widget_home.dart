@@ -35,6 +35,10 @@ class WidgetHome extends StatelessWidget {
                 ],
               ),
             ),
+            Text(
+              '¡Anímate, sé un albatros!',
+              style: kTextSyleCarrerTitle,
+            ),
             Container(
               margin: EdgeInsets.all(5.0),
               child: Wrap(
