@@ -95,9 +95,6 @@ class _DrawerPrincipalState extends State<DrawerPrincipal> {
               sel.setTab(Tabs.Home);
               Navigator.of(context).pop();
             }),
-            // ButtonCareer('Nueva Carrera', function: () {}),
-
-            GestureDetector()
           ],
         ),
       ),
