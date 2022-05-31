@@ -70,9 +70,9 @@ class ContacPrincipal extends StatelessWidget {
               child: TextField(
                 readOnly: true,
                 decoration: InputDecorations.authInputDecoration(
-                  icons: Icon(FontAwesomeIcons.chalkboardUser),
-                  labelText: 'Encargada de Departamento',
-                  hintText: homeSvc.home?.contact?.name ?? "",
+                  icons: Icon(Ionicons.school_outline),
+                  labelText: 'Departamento',
+                  hintText: homeSvc.home?.contact?.area ?? "",
                 ),
               ),
             ),
@@ -81,9 +81,9 @@ class ContacPrincipal extends StatelessWidget {
               child: TextField(
                 readOnly: true,
                 decoration: InputDecorations.authInputDecoration(
-                  icons: Icon(Ionicons.school_outline),
-                  labelText: 'Departamanto',
-                  hintText: homeSvc.home?.contact?.area ?? "",
+                  icons: Icon(FontAwesomeIcons.chalkboardUser),
+                  labelText: 'Encargada de Departamento',
+                  hintText: homeSvc.home?.contact?.name ?? "",
                 ),
               ),
             ),

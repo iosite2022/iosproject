@@ -23,6 +23,7 @@ class _SpeedDialButtonState extends State<SpeedDialButton> {
     final Uri _urlYoutube =
         Uri.parse('https://www.youtube.com/c/TecNMEnsenada');
     final Uri _urlITE = Uri.parse('https://www.ensenada.tecnm.mx');
+    final Uri _urlTECMX = Uri.parse('https://www.tecnm.mx');
     final Uri _urlInstagram =
         Uri.parse('https://www.instagram.com/tecnmensenada/');
     final Uri _urlTwitter = Uri.parse('https://twitter.com/TecNMEnsenada');
@@ -104,10 +105,21 @@ class _SpeedDialButtonState extends State<SpeedDialButton> {
                   label: 'Correo',
                   foregroundColor: Colors.black),
               SpeedDialChild(
-                  onTap: () async => await launchUrl(_urlITE),
-                  child: Icon(FontAwesomeIcons.schoolCircleExclamation),
+                  onTap: () async => await launchUrl(_urlTECMX),
+                  child: Icon(
+                    FontAwesomeIcons.schoolCircleCheck,
+                    color: Color.fromARGB(255, 89, 89, 3),
+                  ),
                   foregroundColor: Colors.grey,
-                  label: 'Página ITE'),
+                  label: 'Página TECNM'),
+              SpeedDialChild(
+                  onTap: () async => await launchUrl(_urlITE),
+                  child: Icon(
+                    FontAwesomeIcons.school,
+                    color: Colors.blue,
+                  ),
+                  foregroundColor: Colors.grey,
+                  label: 'Página ITE Ensenada'),
               SpeedDialChild(
                   onTap: () async => await launchUrl(_urlYoutube),
                   child: Icon(FontAwesomeIcons.youtube),

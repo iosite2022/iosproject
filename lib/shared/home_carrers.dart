@@ -62,12 +62,13 @@ class HomeCarrers extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
+                  TextSpan(),
                   TextSpan(
                     style: TextStyle(
                         color: Color.fromARGB(255, 0, 102, 255),
                         fontSize: 15,
                         fontWeight: FontWeight.bold),
-                    text: 'Saber más...',
+                    text: ' Saber más...',
                     recognizer: TapGestureRecognizer()
                       ..onTap = () async => await launchUrl(
                             Uri.https(

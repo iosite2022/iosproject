@@ -68,9 +68,9 @@ class ContacCordinador extends StatelessWidget {
               child: TextField(
                 readOnly: true,
                 decoration: InputDecorations.authInputDecoration(
-                  icons: Icon(FontAwesomeIcons.chalkboardUser),
-                  labelText: 'Cordinador',
-                  hintText: careerDbs.career?.contact?.name ?? "",
+                  icons: Icon(Ionicons.school_outline),
+                  labelText: 'Carrera',
+                  hintText: careerDbs.career?.name ?? '',
                 ),
               ),
             ),
@@ -79,9 +79,9 @@ class ContacCordinador extends StatelessWidget {
               child: TextField(
                 readOnly: true,
                 decoration: InputDecorations.authInputDecoration(
-                  icons: Icon(Ionicons.school_outline),
-                  labelText: 'Carrera',
-                  hintText: careerDbs.career?.name ?? '',
+                  icons: Icon(FontAwesomeIcons.chalkboardUser),
+                  labelText: 'Coordinador',
+                  hintText: careerDbs.career?.contact?.name ?? "",
                 ),
               ),
             ),
